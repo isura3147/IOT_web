@@ -21,7 +21,10 @@ const App = () => {
         <Title subTitle='Our Services' title='What we offer'/>
         <Services/>
         <About/>
-      
+
+        <Title subTitle='AboutUs' title='Projects done'/>
+        <Projects/>
+
         <Title subTitle='TESTIMONIALS' title='What our clients say'/>
         <Testimonials/> {/* Keep this for Testimonials & Logos */}
         <Title subTitle='Contact us' title='Get in touch'/>
