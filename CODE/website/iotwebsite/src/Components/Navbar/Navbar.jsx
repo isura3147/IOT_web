@@ -3,6 +3,7 @@ import './Navbar.css'
 import logo from '../../assets/logowoutbg.png'
 import menu_icon from '../../assets/menu-icon.png'
 import { Link } from 'react-scroll';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
 
@@ -20,17 +21,15 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`container ${sticky? 'dark-nav' : ''}`}>
-      <img src={logo} alt="" className='logo'/>
-      <ul className={mobileMenu?'':'hide-mobile-menu'}>
-        <li><Link to='background' smooth={true} offset={0} duration={500}>Home</Link></li>
-        <li><Link to='about' smooth={true} offset={-160} duration={500}>About us</Link></li>
-        <li><Link to='service' smooth={true} offset={-280} duration={500}>Services</Link></li>
-        <li><Link to='testimonials' smooth={true} offset={-260} duration={500}>Testimonials</Link></li>
-        <li><Link to='contact' smooth={true} offset={-260} duration={500} className='btn'>Contact us</Link></li>
-      </ul>
-      <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu}/>
-    </nav>
+    <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
   )
 }
 
