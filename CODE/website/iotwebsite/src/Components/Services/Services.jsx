@@ -27,7 +27,7 @@ const Services = () => {
             <img src={serivce_1} alt='' />
             <div className="caption">
               <h1>Cyber security and privacy</h1>
-              <p>Protecting your digital assets, and Privacy as a Service to ensure data confidentiality and regulatory compliance.</p>
+              <p> Service to ensure data confidentiality and regulatory compliance.</p>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Services = () => {
             <img src={serivce_2} alt='' />
             <div className="caption">
               <h1>Data Analysis and AI</h1>
-              <p>Help businesses unlock hidden patterns, optimize operations, and foster innovation through intelligent automation.</p>
+              <p> optimize operations, and foster innovation through intelligent automation.</p>
             </div>
           </div>
         </div>
