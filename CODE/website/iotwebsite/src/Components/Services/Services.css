@@ -1,54 +1,236 @@
-.services{
-    margin: 60px auto;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000;
+    color: #fff; 
 }
-.service img{
-    width: 80%;
-    border-radius: 99%;
-    display: block;
+
+
+* {
+    box-sizing: border-box; 
 }
-.service{
-    flex-basis: 30%;
+
+
+/* Video Background
+.services-wrapper {
     position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.9); 
+    z-index: 2; 
+} */
+
+/* .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+} */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+    padding: 30px;
+    position: relative;
+    /* z-index: 3; Ensure services are above the video */
 }
-.caption{
+
+.service {
+    perspective: 1000px;
+    grid-column: span 3;
+    margin: auto;
+}
+
+
+
+.service-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+
+.service:hover .service-inner {
+    transform: rotateY(180deg);
+}
+
+.service img {
+    /* width: 97%; */
+    border-radius: 20px; /* Square images */
+    display: block;
+    height: auto;
+    width: 220px;  /* Set fixed width */
+    height: 220px; /* Set fixed height */
+    object-fit: cover; /* Ensures image covers the container while keeping the aspect ratio */
+}
+
+.caption {
     border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 15, 152, 0.3);
+    background: rgba(52, 77, 71, 0.966);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #fff;
+    color: #cfcdcd;
     cursor: pointer;
     opacity: 0;
-    padding-top: 70%;
-    transition: 0.4s;
+    transition: opacity 0.4s;
+    backface-visibility: hidden; 
+    /* Ensure caption is the same size as the front image */
+    /* width: 97%;
+    height: 100%; */
+    width: 220px;  /* Set fixed width */
+    height: 220px; /* Set fixed height */
+    object-fit: cover; /* Ensures image covers the container while keeping the aspect ratio */
 }
-.caption img{
-    width: 60px;
+
+/* .caption img {
+    width: 50px;
     margin-bottom: 10px;
+    
+} */
+
+.caption h1 {
+    margin: 10px 0;
+    font-size: medium;
+    font-weight: bold; /* Make the heading bold */
+    text-align: center; /* Center align the heading */
+    font-weight: 700; /* Make the heading more bold */
 }
-.service:hover .caption{
+
+.caption p {
+    margin: 10px 0;
+    text-align: center; /* Center align the paragraph */
+    font-size: 0.85em; /* Make the paragraph text slightly smaller */
+    font-weight: 500; /* Make the heading more bold */
+}
+
+.service:hover .caption {
     opacity: 1;
     padding-top: 0;
+    transform: rotateY(180deg); 
 }
 
-/* ------------------ media query ------------ */
+/* Adjust the span for the first row to ensure even margins */
+.service:nth-child(1) {
+    grid-column: 1 / span 4; /* Span 3 columns */
+}
 
-@media (max-width: 650px){
-    .services{
-        flex-direction: column;
+.service:nth-child(2) {
+    grid-column: 5 / span 4; /* Span 3 columns */
+}
+
+.service:nth-child(3) {
+    grid-column: 9 / span 4; /* Span 3 columns */
+}
+
+.service:nth-child(4) {
+    grid-column: 13 / span 4; /* Span 3 columns */
+}
+
+/* Adjust grid placement for the second row */
+.service:nth-child(5) {
+    grid-column: 3 / span 4; /* Centered below the first image in the first row */
+}
+
+.service:nth-child(6) {
+    grid-column: 7 / span 4; /* Centered below the second image in the first row */
+}
+
+.service:nth-child(7) {
+    grid-column: 11 / span 4; /* Centered below the third image in the first row */
+}
+
+
+
+
+/* Media Queries */
+
+/* Medium screens */
+@media (max-width: 850px) {
+    .services {
+        grid-template-columns: repeat(6, 1fr); /* 6 columns on medium screens */
     }
-    .service{
-        flex-basis: 100%;
-        margin: 20px;
+    
+    .service:nth-child(1) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(2) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(3) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(4) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(5) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(6) {
+        grid-column: span 6; /* Span 6 columns */
+    }
+
+    .service:nth-child(7) {
+        grid-column: span 6; /* Span 6 columns */
     }
 }
+
+/* Small screens */
+@media (max-width: 650px) {
+    .services {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on small screens */
+    }
+
+    .service {
+        grid-column: span 3; /* Span all 3 columns */
+    }
+
+    .service:nth-child(5) {
+        grid-column: span 3; /* Centered below the first image in the first row */
+    }
+
+    .service:nth-child(6) {
+        grid-column: span 3; /* Centered below the second image in the first row */
+    }
+
+    .service:nth-child(7) {
+        grid-column: span 3; /* Centered below the third image in the first row */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

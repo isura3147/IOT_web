@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <Navbar/>
       <Background/>
-      <div className="container">
+      
         <Title subTitle='Our Services' title='What we offer'/>
         <Services/>
         <About/>
@@ -26,7 +26,7 @@ const App = () => {
         <Title subTitle='Contact us' title='Get in touch'/>
         <Contact/>
         <Footer/>
-      </div>
+      
     </div>
   )
 }
